@@ -76,3 +76,49 @@ The primary relationships between the tables are:
 
 * **One-to-Many (Country to Cities):** 🗺️➡️🏙️ One country can have many cities. The `city.CountryCode` links to `country.Code`.
 * **Many-to-One (Languages to Country):** 🗣️➡️🗺️ Many languages are associated with one country. The `countrylanguage.CountryCode` links to `country.Code`.
+
+***
+
+## 💡 SQL Query Examples and Functions (World-TEST.sql)
+
+The `World-TEST.sql` file demonstrates various essential SQL concepts for querying and analyzing the database.
+
+### 1. Basic Retrieval and Aggregation
+
+| SQL Command | Example Query | Explanation |
+| :--- | :--- | :--- |
+| **`SELECT * FROM`** | `SELECT * FROM CITY;` | Fetches **all columns** (`*`) and **all rows** from the specified table (`CITY`). |
+| **`COUNT()`** | `SELECT COUNT(C.ID) AS NumberOfCity...` | An **aggregate function** that counts the number of non-NULL values in a specified column or expression. |
+| **`AS`** | `...COUNT(C.ID) AS NumberOfCity...` | Used to assign a **temporary alias** (a new name) to a column, an expression, or a table for readability. |
+| **`GROUP BY`** | `...GROUP BY CT.Name;` | Groups rows that have the same values in specified columns into summary rows, often used with aggregate functions like `COUNT()` or `AVG()`. |
+
+### 2. Filtering and Sorting Data
+
+| SQL Command | Example Query | Explanation |
+| :--- | :--- | :--- |
+| **`WHERE`** | `...WHERE Population > 2000000` | Filters the result set to include only rows that satisfy a specified condition. |
+| **`ORDER BY`** | `...ORDER BY Population DESC` | Sorts the result set by a specified column. `DESC` sorts in **descending** order (largest to smallest). `ASC` sorts in **ascending** order (smallest to largest), which is the default. |
+| **`LIMIT`** | `...LIMIT 10;` | Restricts the number of rows returned by the query, typically used to fetch the **Top N** results (e.g., the top 10 largest cities). |
+| **`LIMIT offset, count`** | `...LIMIT 30, 10;` | Used for **pagination**. Skips the first `offset` (30) rows and then returns the next `count` (10) rows. |
+| **`LIKE`** | `WHERE Name like 'Be%';` | Used in the `WHERE` clause to search for a specified pattern in a column. The wildcard `%` matches any sequence of zero or more characters. |
+| **`BETWEEN`** | `WHERE Population BETWEEN 500000 AND 1000000` | Selects values within a given range (inclusive). Equivalent to using `>=` and `<=`. |
+| **`DISTINCT`** | `SELECT DISTINCT Name...` | Eliminates duplicate rows in the result set, ensuring each unique value appears only once. |
+
+### 3. Joining Tables
+
+| SQL Command | Example Query | Explanation |
+| :--- | :--- | :--- |
+| **Implicit Join** | `FROM City C, Country CT WHERE C.CountryCode=CT.Code` | A legacy join syntax where tables are listed in `FROM` and the join condition is in `WHERE`. |
+| **`JOIN` (Explicit)** | `FROM City C JOIN Country CT ON C.CountryCode=CT.Code` | The modern and preferred join syntax. By default, it performs an **`INNER JOIN`**, returning only rows where the join condition (`ON`) is met in both tables. |
+| **`ON`** | `...ON C.CountryCode=CT.Code` | Specifies the condition for joining the tables (i.e., which columns must match). |
+
+### 4. Mathematical Functions and Subqueries
+
+| SQL Command | Example Query | Explanation |
+| :--- | :--- | :--- |
+| **Arithmetic** | `Population/SurfaceArea AS Population_Dens` | Performs mathematical operations (e.g., division `/`) directly within the `SELECT` statement to create a calculated column (Population Density). |
+| **`AVG()`** | `SELECT AVG(GNP/Population) AS Value from country;` | An **aggregate function** that calculates the average value of a numeric column or expression. |
+| **Subquery** | `...WHERE (CT.GNP/CT.Population)> (SELECT AVG(GNP/Population) FROM Country)` | A query nested inside another SQL query (usually in the `WHERE` or `FROM` clauses). The inner query executes first, and its result is used by the outer query. This example finds all countries with a per-capita GNP greater than the global average. |
+
+---
+*(Above is a visualization of the main SQL query clauses.)*
