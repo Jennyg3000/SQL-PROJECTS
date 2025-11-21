@@ -1,10 +1,10 @@
-# World Database SQL Dump 🌍📊
+# World Database SQL  🌍📊
 
 This repository contains the SQL dump for the **`world`** database, a classic sample database used for educational and demonstration purposes. It models geographic data, including countries, cities, and languages spoken in those countries.
 
 ## 🚀 Getting Started: Setup Instructions
 
-This file is a standard **MySQL dump** file. To set up the database:
+This file is a standard **MySQL ** file. To set up the database:
 
 1.  ✅ Ensure you have a MySQL server running (Version 8.0.19-debug was used for this dump).
 2.  🔑 Log in to your MySQL client (e.g., `mysql -u your_user -p`).
