@@ -25,6 +25,9 @@ This file is a standard **MySQL ** file. To set up the database:
 
 The database consists of three main tables, with relationships established via Foreign Keys.
 
+<img width="607" height="459" alt="image" src="https://github.com/user-attachments/assets/9ec4ed90-5513-4f76-88aa-3d66d180e39a" />
+
+
 ### 1. `city` Table 🏙️
 
 This table stores data about individual cities.
