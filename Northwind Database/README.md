@@ -20,6 +20,8 @@ The database structure and initial data are provided in `Northwind Database crea
 
 The Northwind database models a fictional company selling specialty food products.
 
+<img width="772" height="606" alt="image" src="https://github.com/user-attachments/assets/ce8bc1f2-0a0f-4058-9e8f-a58d26dd3f5c" />
+
 | Table Name | Description | Key Relationships |
 | :--- | :--- | :--- |
 | **`categories`** | Defines product categories (e.g., 'Beverages', 'Seafood'). | Linked to `products` |
