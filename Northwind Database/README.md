@@ -34,7 +34,7 @@ The Northwind database models a fictional company selling specialty food product
 
 ## 🔗 Key Relationships (Foreign Keys) 🤝
 
-这些关系通过外键（Foreign Keys）将数据连接起来，是执行连接查询（JOINs）的基础。
+These relationships link data together via **Foreign Keys**, which is the basis for executing join queries (**JOINs**).
 
 | Source Table (Child) | Foreign Key | References (Parent Table) | Relationship Type |
 | :--- | :--- | :--- | :--- |
